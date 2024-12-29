@@ -37,13 +37,16 @@ const App = () => {
       return alert("please fill all the details correctly");
     }
     try {
-      const response = await fetch("http://localhost:8080/api/book", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://vehical-rental-backend.vercel.app/api/book",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const result = await response.json();
 
       if (response.ok) {
@@ -67,12 +70,15 @@ const App = () => {
   };
 
   const fetchData = async () => {
-    const res = await fetch("http://localhost:8080/api/vehicle-types", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const res = await fetch(
+      "https://vehical-rental-backend.vercel.app/api/vehicle-types",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const result = await res.json();
     console.log(result);
     setProducts(result.types);

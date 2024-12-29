@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const dotenv = require("dotenv").config();
+require("dotenv").config();
 const VehicleRoute = require("./routes/vehicleRoute");
 const bookingRoute = require("./routes/bookingRoute");
 const { seedDatabase } = require("./seed");
@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 // Connect to MongoDB
-const MONGO_URI = "mongodb://localhost:27017/vehicleRental";
+const MONGO_URI = process.env.MONGO_URI;
 mongoose.connect(MONGO_URI);
 
 const db = mongoose.connection;

@@ -21,6 +21,9 @@ db.once("open", () => {
 });
 
 // Routes
+app.get("/", (req, res) => {
+  res.send("hello world");
+});
 app.use("/api", VehicleRoute);
 
 app.use("/api", bookingRoute);
